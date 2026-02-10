@@ -14,26 +14,28 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold tracking-tight">About</h1>
       <div className="mt-8 space-y-6 text-foreground/80 leading-relaxed">
         <p>
-          Hi, I&apos;m Dhruval — a Software Engineer at Meta, where I build
-          Android experiences at scale. I&apos;m passionate about clean
-          architecture, performance, and building products that genuinely
-          improve people&apos;s lives.
+          Hi, I&apos;m Dhruval — a Software Engineer on Instagram&apos;s
+          Monetization Client Platform at Meta, where I own experimentation
+          logic for Reels. I&apos;m passionate about building reliable,
+          high-impact systems at scale and shipping with data-driven
+          confidence.
         </p>
         <p>
           I started my journey in Surat, India, earning a Diploma in Computer
-          Engineering (CGPA 9.42) from Tapi Diploma Engineering College,
-          followed by a B.E. in Computer Engineering (CGPA 8.34) from Shree
-          Swami Atmanand Saraswati Institute of Technology. Along the way, I
-          developed a deep focus on mobile engineering — from native Android
-          and iOS to cross-platform solutions.
+          Engineering from Tapi Diploma Engineering College, followed by a
+          B.E. in Computer Engineering from SSASIT under Gujarat Technological
+          University. I then moved to the U.S. to pursue an M.S. in Computer
+          Science at NJIT&apos;s Ying Wu College of Computing, graduating in
+          2024.
         </p>
         <p>
           Before Meta, I worked as a Senior Mobile Developer at KG Krunch
           Solutions, where I led mobile app development across platforms,
           mentored junior engineers, and contributed to embedded systems
-          projects. I also served as a Teaching Assistant at NJIT for
-          CS 338 (Android Development), helping 40+ students learn the
-          fundamentals of building real Android apps.
+          projects. I also spent over a year as a Teaching Assistant at NJIT
+          for CS 338 (Android Development), partnering with Dr. Baruch Schieber
+          to lead labs, code reviews, and curriculum development for 40+
+          students.
         </p>
         <p>
           I care about writing code that&apos;s simple, maintainable, and
@@ -50,7 +52,7 @@ export default function AboutPage() {
           <li>iOS development (Swift, SwiftUI)</li>
           <li>System design &amp; scalable architecture</li>
           <li>Cross-platform mobile (React Native)</li>
-          <li>Cloud services (Firebase, AWS, Google Cloud)</li>
+          <li>Cloud services (Firebase)</li>
         </ul>
       </div>
     </Container>

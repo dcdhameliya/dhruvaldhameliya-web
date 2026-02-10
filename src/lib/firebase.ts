@@ -19,8 +19,10 @@ export function getFirebaseAnalytics(): Analytics | null {
 }
 
 export async function initAnalytics(): Promise<Analytics | null> {
-  if (process.env.NEXT_PUBLIC_ENV !== "production") return null;
   if (analytics) return analytics;
+
+  // Skip if Firebase config is missing
+  if (!firebaseConfig.apiKey || !firebaseConfig.projectId) return null;
 
   try {
     const supported = await isSupported();
@@ -29,7 +31,8 @@ export async function initAnalytics(): Promise<Analytics | null> {
     const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
     analytics = getAnalytics(app);
     return analytics;
-  } catch {
+  } catch (e) {
+    console.error("Firebase Analytics init failed:", e);
     return null;
   }
 }

@@ -30,12 +30,12 @@ export default async function HomePage() {
           Dhruval Dhameliya
         </h1>
         <p className="mt-2 text-lg font-medium text-foreground/60">
-          Software Engineer, Android @ Meta
+          Software Engineer, Android @ Meta (Instagram)
         </p>
         <p className="mt-4 max-w-xl text-lg text-foreground/70 leading-relaxed">
-          Building Android experiences at scale for billions of users. I write
-          about mobile engineering, system design, and lessons learned shipping
-          real products.
+          Owning experimentation on Instagram Reels monetization. I write
+          about mobile engineering, system design, and lessons learned
+          shipping at scale.
         </p>
         <div className="mt-6 flex gap-4">
           <Link

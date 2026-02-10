@@ -34,41 +34,97 @@ export default function ResumePage() {
             <div>
               <h3 className="font-medium">Software Engineer, Android</h3>
               <p className="text-sm text-foreground/60">
-                Meta &middot; Present
+                Meta (Instagram &ndash; Monetization Client Platform), Menlo
+                Park, CA &middot; Mar 2025 &ndash; Present
               </p>
               <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
-                Building Android experiences at scale. Working on features used
-                by billions of users, focusing on performance, reliability, and
-                clean architecture across Meta&apos;s family of apps.
+                Android engineer on Instagram&apos;s Monetization Client
+                Platform, owning experimentation logic for the Reels surface.
+              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-foreground/80 leading-relaxed list-disc pl-5">
+                <li>
+                  Delivered client-side monetization features with direct
+                  revenue, infrastructure, and reliability impact on Reels ads.
+                </li>
+                <li>
+                  Own experiment-driven rollout strategy — from employee
+                  testing through staged audience validation to full launch
+                  based on metric signals.
+                </li>
+                <li>
+                  Analyze revenue and behavioral experiment results to make
+                  go / no-go / iterate decisions in partnership with product
+                  and data science.
+                </li>
+                <li>
+                  Built and evolved shared client platform components that
+                  support monetization delivery and experimentation at scale.
+                </li>
+                <li>
+                  Improved safety and robustness of delivery flows through
+                  controlled rollouts, monitoring, and data-backed validation
+                  under high traffic.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-medium">Teaching Assistant — CS 338 Android Development</h3>
+              <p className="text-sm text-foreground/60">
+                New Jersey Institute of Technology (NJIT) &middot; Jan 2023 &ndash; May 2024
+              </p>
+              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+                Partnered with Dr. Baruch Schieber to deliver the CS 338 Android
+                development course to 40+ students. Led weekly lab sessions,
+                provided hands-on code reviews, and graded assignments with
+                detailed feedback. Created supplementary learning materials and
+                contributed to curriculum development, bringing real-world Android
+                expertise into the classroom to raise the bar on student outcomes.
               </p>
             </div>
 
             <div>
               <h3 className="font-medium">Senior Mobile Developer</h3>
               <p className="text-sm text-foreground/60">
-                KG Krunch Solutions
+                KG Krunch Solutions &middot; Dec 2019 &ndash; Jun 2022
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
-                Led development of mobile applications for iOS and Android
-                platforms. Designed and implemented features using reactive
-                programming, modular architecture, and dependency injection.
-                Mentored junior developers through code reviews and technical
-                guidance. Contributed to embedded development projects,
-                integrating hardware and software systems.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium">Teaching Assistant — CS 338 Android Development</h3>
-              <p className="text-sm text-foreground/60">
-                New Jersey Institute of Technology (NJIT)
-              </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
-                Collaborated with Dr. Baruch Schieber to facilitate the Android
-                development course. Organized weekly lab sessions, graded
-                assignments, conducted code reviews, and created supplementary
-                materials for 40+ students.
-              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-foreground/80 leading-relaxed list-disc pl-5">
+                <li>
+                  Led end-to-end development of iOS and Android apps using
+                  Kotlin, Swift, Java, and React Native — from architecture
+                  through App Store / Play Store deployment.
+                </li>
+                <li>
+                  Architected apps with MVVM, MVI, Clean Architecture, and
+                  VIPER patterns; introduced dependency injection (Dagger2),
+                  reactive programming (RxJava/RxSwift, Coroutines), and
+                  modular codebases.
+                </li>
+                <li>
+                  Integrated RESTful APIs, GraphQL, OAuth, and third-party
+                  services (payment gateways, social login, Google Maps,
+                  MapKit) to extend app capabilities.
+                </li>
+                <li>
+                  Built CI/CD pipelines with Jenkins, Fastlane, and GitHub
+                  Actions; enforced automated testing (JUnit, Espresso,
+                  XCTest) to ship with confidence.
+                </li>
+                <li>
+                  Implemented cloud backends on Firebase (Firestore, Cloud
+                  Functions, FCM/APNS push notifications).
+                </li>
+                <li>
+                  Contributed to embedded systems projects — firmware
+                  development, RTOS integration, and hardware communication
+                  via I2C, SPI, and UART protocols.
+                </li>
+                <li>
+                  Mentored junior developers through code reviews and
+                  technical guidance, streamlining team processes and
+                  fostering continuous learning.
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -78,14 +134,34 @@ export default function ResumePage() {
           <h2 className="text-xl font-semibold tracking-tight border-b border-neutral-200 pb-2 dark:border-neutral-800">
             Education
           </h2>
-          <div className="mt-6 space-y-6">
+          <div className="mt-6 space-y-8">
+            <div>
+              <h3 className="font-medium">
+                M.S. in Computer Science
+              </h3>
+              <p className="text-sm text-foreground/60">
+                New Jersey Institute of Technology (NJIT), Ying Wu College of
+                Computing, Newark, NJ &middot; Sep 2022 &ndash; May 2024
+                &middot; GPA: 3.4
+              </p>
+              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+                Coursework: Data Mining, Web Systems Development, Java
+                Programming, Data Structures &amp; Algorithms, Operating Systems
+                Design, AI, Machine Learning, Big Data.
+              </p>
+            </div>
             <div>
               <h3 className="font-medium">
                 B.E. in Computer Engineering
               </h3>
               <p className="text-sm text-foreground/60">
                 Shree Swami Atmanand Saraswati Institute of Technology, Surat
-                &middot; August 2020 &middot; CGPA: 8.34
+                (Gujarat Technological University) &middot; Jan 2016 &ndash; Aug
+                2020 &middot; CGPA: 8.34
+              </p>
+              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+                Coursework: Data Mining, Python Programming, OOP with C++ &amp;
+                Java, Artificial Intelligence.
               </p>
             </div>
             <div>
@@ -93,8 +169,13 @@ export default function ResumePage() {
                 Diploma in Computer Engineering
               </h3>
               <p className="text-sm text-foreground/60">
-                Tapi Diploma Engineering College, Surat &middot; June 2017
-                &middot; CGPA: 9.42
+                Tapi Diploma Engineering College, Surat (Gujarat Technological
+                University) &middot; Aug 2014 &ndash; Jun 2017 &middot; CGPA:
+                9.42
+              </p>
+              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+                Coursework: Java Programming, Data Structures, DBMS, Mobile
+                Computing.
               </p>
             </div>
           </div>
@@ -111,7 +192,7 @@ export default function ResumePage() {
                 Languages
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">
-                {["Kotlin", "Java", "TypeScript", "Swift", "JavaScript", "C++", "Objective-C"].map(
+                {["Kotlin", "Java", "Swift", "Objective-C", "JavaScript", "TypeScript", "C++"].map(
                   (skill) => (
                     <span
                       key={skill}
@@ -131,9 +212,9 @@ export default function ResumePage() {
                 {[
                   "Android",
                   "Jetpack Compose",
+                  "iOS",
                   "SwiftUI",
                   "React Native",
-                  "iOS",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -150,13 +231,11 @@ export default function ResumePage() {
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">
                 {[
+                  "Firebase",
+                  "REST APIs",
                   "React",
                   "Next.js",
                   "Node.js",
-                  "Firebase",
-                  "AWS",
-                  "Google Cloud",
-                  "REST APIs",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -176,8 +255,8 @@ export default function ResumePage() {
                   "Android Studio",
                   "Xcode",
                   "Git",
-                  "Jenkins",
                   "CI/CD",
+                  "Jenkins",
                   "System Design",
                   "Clean Architecture",
                 ].map((skill) => (

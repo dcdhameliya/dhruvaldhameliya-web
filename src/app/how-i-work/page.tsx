@@ -106,7 +106,7 @@ export default function HowIWorkPage() {
                 Languages
               </h3>
               <p className="mt-1 text-foreground/80">
-                Kotlin, Java, Swift, TypeScript, C++, Objective-C
+                Kotlin, Java, Swift, Objective-C, JavaScript, TypeScript, C++
               </p>
             </div>
             <div>
@@ -128,7 +128,7 @@ export default function HowIWorkPage() {
                 Backend &amp; Infra
               </h3>
               <p className="mt-1 text-foreground/80">
-                Firebase, AWS, Google Cloud, REST APIs, CI/CD
+                Firebase, REST APIs, CI/CD
               </p>
             </div>
           </div>
