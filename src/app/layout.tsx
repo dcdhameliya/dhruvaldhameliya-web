@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  icons: {
+    icon: "/images/favicon.webp",
+    apple: "/images/favicon.webp",
+  },
   robots: {
     index: true,
     follow: true,

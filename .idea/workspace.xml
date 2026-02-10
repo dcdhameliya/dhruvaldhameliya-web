@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6d829ee7-2656-414c-a50a-30cbcc7b6b05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/hello-world.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/hello-world.mdx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "/Users/dhruval/dhruval ni website/dhruvaldhameliya.com/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -63,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1770542968869</updated>
-      <workItem from="1770542970111" duration="9024000" />
+      <workItem from="1770542970111" duration="11494000" />
     </task>
     <servers />
   </component>
