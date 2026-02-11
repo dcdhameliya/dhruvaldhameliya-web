@@ -1,6 +1,15 @@
 import Link from "next/link";
 import type { Project } from "@/lib/content";
 
+function getTagClass(tech: string): string {
+  const t = tech.toLowerCase();
+  if (["kotlin", "java", "jetpack compose", "mvvm", "android"].includes(t)) return "tag-android";
+  if (["swift", "swiftui", "combine", "ios"].includes(t)) return "tag-ios";
+  if (["react", "typescript", "javascript", "next.js", "tailwind css", "react native"].includes(t)) return "tag-web";
+  if (["node.js", "express", "python", "firebase", "docker"].includes(t)) return "tag-backend";
+  return "bg-neutral-100 text-foreground/70 dark:bg-neutral-800";
+}
+
 function getPlatformIcon(tech: string[]) {
   const isIOS = tech.some((t) => t.toLowerCase() === "swift");
   const isAndroid = tech.some((t) =>
@@ -40,7 +49,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const platformIcon = getPlatformIcon(project.frontmatter.tech);
 
   return (
-    <article className="group rounded-lg border border-neutral-200 p-5 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600">
+    <article className="group rounded-xl border border-neutral-200 p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700 dark:hover:shadow-neutral-900/50">
       <Link href={`/projects/${project.slug}`} className="block">
         <h3 className="text-lg font-semibold tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400">
           {platformIcon}
@@ -54,7 +63,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.frontmatter.tech.map((t) => (
               <span
                 key={t}
-                className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-foreground/70 dark:bg-neutral-800"
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${getTagClass(t)}`}
               >
                 {t}
               </span>

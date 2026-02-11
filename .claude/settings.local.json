@@ -5,7 +5,12 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(curl:*)",
-      "WebFetch(domain:steelblue-rabbit-857459.hostingersite.com)"
+      "WebFetch(domain:steelblue-rabbit-857459.hostingersite.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:www.heroui.com)",
+      "Bash(git checkout:*)",
+      "Bash(git reset:*)"
     ]
   }
 }

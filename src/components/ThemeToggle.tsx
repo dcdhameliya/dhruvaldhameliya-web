@@ -41,7 +41,7 @@ export function ThemeToggle() {
       {theme === "dark" ? (
         // Sun icon
         <svg
-          className="h-5 w-5"
+          className="theme-toggle-icon h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -56,7 +56,7 @@ export function ThemeToggle() {
       ) : (
         // Moon icon
         <svg
-          className="h-5 w-5"
+          className="theme-toggle-icon h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}

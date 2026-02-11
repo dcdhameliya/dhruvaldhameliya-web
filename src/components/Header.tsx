@@ -15,7 +15,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="relative border-b border-neutral-200 dark:border-neutral-800">
+    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-background/80 backdrop-blur-lg dark:border-neutral-800/80">
       <Container className="flex items-center justify-between py-4">
         <Link href="/" className="text-lg font-semibold tracking-tight">
           Dhruval Dhameliya
@@ -26,7 +26,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+                className="nav-link text-sm text-foreground/80 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
