@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">About</h1>
-      <div className="mt-8 space-y-6 text-foreground/80 leading-relaxed">
+      <div className="mt-8 space-y-6 text-foreground/90 leading-relaxed">
         <p>
           Hi, I&apos;m Dhruval — a Software Engineer on Instagram&apos;s
           Monetization Client Platform at Meta, where I own experimentation

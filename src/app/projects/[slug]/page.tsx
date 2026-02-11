@@ -53,13 +53,13 @@ export default async function ProjectDetailPage({ params }: Props) {
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
             {frontmatter.title}
           </h1>
-          <p className="mt-2 text-foreground/60">{frontmatter.description}</p>
+          <p className="mt-2 text-foreground/70">{frontmatter.description}</p>
           {frontmatter.tech.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {frontmatter.tech.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-foreground/70 dark:bg-neutral-800"
+                  className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-foreground/80 dark:bg-neutral-800"
                 >
                   {t}
                 </span>

@@ -53,7 +53,7 @@ export function MobileNav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+                className="text-sm text-foreground/90 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>

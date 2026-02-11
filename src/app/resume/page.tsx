@@ -16,7 +16,7 @@ export default function ResumePage() {
         <h1 className="text-3xl font-bold tracking-tight">Resume</h1>
         <TrackedLink
           trackAs="resume"
-          href="/resume.pdf"
+          href="/dhruval_resume.pdf"
           download
           className="rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
         >
@@ -25,6 +25,31 @@ export default function ResumePage() {
       </div>
 
       <div className="mt-10 space-y-10">
+        {/* Key Achievements */}
+        <section className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
+          <h2 className="text-xl font-semibold tracking-tight">
+            Key Achievements
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm text-foreground/90 leading-relaxed">
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 flex h-2 w-2 flex-shrink-0 rounded-full bg-blue-500" />
+              Own experimentation logic for Instagram Reels monetization at Meta, driving client-side features with direct revenue impact.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 flex h-2 w-2 flex-shrink-0 rounded-full bg-blue-500" />
+              Led end-to-end development of 8+ iOS and Android apps across multiple industries, from architecture through App Store deployment.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 flex h-2 w-2 flex-shrink-0 rounded-full bg-blue-500" />
+              Built CI/CD pipelines and enforced automated testing (JUnit, Espresso, XCTest) to ship production mobile apps with confidence.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 flex h-2 w-2 flex-shrink-0 rounded-full bg-blue-500" />
+              Taught Android development to 40+ students at NJIT as TA for CS 338, contributing to curriculum development and hands-on mentorship.
+            </li>
+          </ul>
+        </section>
+
         {/* Experience */}
         <section>
           <h2 className="text-xl font-semibold tracking-tight border-b border-neutral-200 pb-2 dark:border-neutral-800">
@@ -33,15 +58,15 @@ export default function ResumePage() {
           <div className="mt-6 space-y-8">
             <div>
               <h3 className="font-medium">Software Engineer, Android</h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 Meta (Instagram &ndash; Monetization Client Platform), Menlo
                 Park, CA &middot; Mar 2025 &ndash; Present
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
                 Android engineer on Instagram&apos;s Monetization Client
                 Platform, owning experimentation logic for the Reels surface.
               </p>
-              <ul className="mt-2 space-y-1.5 text-sm text-foreground/80 leading-relaxed list-disc pl-5">
+              <ul className="mt-2 space-y-1.5 text-sm text-foreground/90 leading-relaxed list-disc pl-5">
                 <li>
                   Delivered client-side monetization features with direct
                   revenue, infrastructure, and reliability impact on Reels ads.
@@ -70,10 +95,10 @@ export default function ResumePage() {
 
             <div>
               <h3 className="font-medium">Teaching Assistant — CS 338 Android Development</h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 New Jersey Institute of Technology (NJIT) &middot; Jan 2023 &ndash; May 2024
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
                 Partnered with Dr. Baruch Schieber to deliver the CS 338 Android
                 development course to 40+ students. Led weekly lab sessions,
                 provided hands-on code reviews, and graded assignments with
@@ -85,10 +110,10 @@ export default function ResumePage() {
 
             <div>
               <h3 className="font-medium">Senior Mobile Developer</h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 KG Krunch Solutions &middot; Dec 2019 &ndash; Jun 2022
               </p>
-              <ul className="mt-2 space-y-1.5 text-sm text-foreground/80 leading-relaxed list-disc pl-5">
+              <ul className="mt-2 space-y-1.5 text-sm text-foreground/90 leading-relaxed list-disc pl-5">
                 <li>
                   Led end-to-end development of iOS and Android apps using
                   Kotlin, Swift, Java, and React Native — from architecture
@@ -139,12 +164,12 @@ export default function ResumePage() {
               <h3 className="font-medium">
                 M.S. in Computer Science
               </h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 New Jersey Institute of Technology (NJIT), Ying Wu College of
                 Computing, Newark, NJ &middot; Sep 2022 &ndash; May 2024
                 &middot; GPA: 3.4
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
                 Coursework: Data Mining, Web Systems Development, Java
                 Programming, Data Structures &amp; Algorithms, Operating Systems
                 Design, AI, Machine Learning, Big Data.
@@ -154,12 +179,12 @@ export default function ResumePage() {
               <h3 className="font-medium">
                 B.E. in Computer Engineering
               </h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 Shree Swami Atmanand Saraswati Institute of Technology, Surat
                 (Gujarat Technological University) &middot; Jan 2016 &ndash; Aug
                 2020 &middot; CGPA: 8.34
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
                 Coursework: Data Mining, Python Programming, OOP with C++ &amp;
                 Java, Artificial Intelligence.
               </p>
@@ -168,12 +193,12 @@ export default function ResumePage() {
               <h3 className="font-medium">
                 Diploma in Computer Engineering
               </h3>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/70">
                 Tapi Diploma Engineering College, Surat (Gujarat Technological
                 University) &middot; Aug 2014 &ndash; Jun 2017 &middot; CGPA:
                 9.42
               </p>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
                 Coursework: Java Programming, Data Structures, DBMS, Mobile
                 Computing.
               </p>
@@ -188,7 +213,7 @@ export default function ResumePage() {
           </h2>
           <div className="mt-6 space-y-4">
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Languages
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -205,7 +230,7 @@ export default function ResumePage() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Mobile
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -226,7 +251,7 @@ export default function ResumePage() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Web &amp; Backend
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -247,7 +272,7 @@ export default function ResumePage() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Tools &amp; Practices
               </h3>
               <div className="mt-2 flex flex-wrap gap-2">

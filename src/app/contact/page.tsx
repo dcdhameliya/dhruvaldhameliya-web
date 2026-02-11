@@ -31,7 +31,7 @@ export default function ContactPage() {
   return (
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">Contact</h1>
-      <p className="mt-4 text-foreground/70 leading-relaxed">
+      <p className="mt-4 text-foreground/80 leading-relaxed">
         Feel free to reach out — whether it&apos;s about a role, a project, or
         just to connect.
       </p>
@@ -39,7 +39,7 @@ export default function ContactPage() {
       <div className="mt-10 space-y-6">
         {/* Location */}
         <div>
-          <h3 className="text-sm font-medium text-foreground/60 flex items-center gap-2">
+          <h3 className="text-sm font-medium text-foreground/70 flex items-center gap-2">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -67,7 +67,7 @@ export default function ContactPage() {
 
         {/* Email */}
         <div>
-          <h3 className="text-sm font-medium text-foreground/60 flex items-center gap-2">
+          <h3 className="text-sm font-medium text-foreground/70 flex items-center gap-2">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -102,7 +102,7 @@ export default function ContactPage() {
 
         {/* LinkedIn */}
         <div>
-          <h3 className="text-sm font-medium text-foreground/60 flex items-center gap-2">
+          <h3 className="text-sm font-medium text-foreground/70 flex items-center gap-2">
             <svg
               className="w-4 h-4"
               fill="currentColor"
@@ -127,7 +127,7 @@ export default function ContactPage() {
 
         {/* GitHub */}
         <div>
-          <h3 className="text-sm font-medium text-foreground/60 flex items-center gap-2">
+          <h3 className="text-sm font-medium text-foreground/70 flex items-center gap-2">
             <svg
               className="w-4 h-4"
               fill="currentColor"

@@ -26,7 +26,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link text-sm text-foreground/80 transition-colors hover:text-foreground"
+                className="nav-link text-sm text-foreground/90 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>

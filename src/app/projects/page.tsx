@@ -15,7 +15,7 @@ export default async function ProjectsPage() {
   return (
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
-      <p className="mt-2 text-foreground/60">
+      <p className="mt-2 text-foreground/70">
         A curated collection of projects and case studies.
       </p>
       {projects.length > 0 ? (
@@ -25,7 +25,7 @@ export default async function ProjectsPage() {
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-foreground/60">
+        <p className="mt-10 text-foreground/70">
           No projects yet. Check back soon.
         </p>
       )}

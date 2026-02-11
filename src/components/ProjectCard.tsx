@@ -7,7 +7,7 @@ function getTagClass(tech: string): string {
   if (["swift", "swiftui", "combine", "ios"].includes(t)) return "tag-ios";
   if (["react", "typescript", "javascript", "next.js", "tailwind css", "react native"].includes(t)) return "tag-web";
   if (["node.js", "express", "python", "firebase", "docker"].includes(t)) return "tag-backend";
-  return "bg-neutral-100 text-foreground/70 dark:bg-neutral-800";
+  return "bg-neutral-100 text-foreground/80 dark:bg-neutral-800";
 }
 
 function getPlatformIcon(tech: string[]) {
@@ -55,7 +55,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {platformIcon}
           {project.frontmatter.title}
         </h3>
-        <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+        <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
           {project.frontmatter.description}
         </p>
         {project.frontmatter.tech.length > 0 && (

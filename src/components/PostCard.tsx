@@ -9,12 +9,12 @@ export function PostCard({ post }: { post: BlogPost }) {
         <h3 className="text-lg font-semibold tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400">
           {post.frontmatter.title}
         </h3>
-        <p className="mt-1 text-sm text-foreground/60">
+        <p className="mt-1 text-sm text-foreground/70">
           {formatDate(post.frontmatter.date)}
           <span className="mx-2">&middot;</span>
           {post.readingTime}
         </p>
-        <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+        <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
           {post.frontmatter.description}
         </p>
         {post.frontmatter.tags.length > 0 && (

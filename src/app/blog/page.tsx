@@ -16,7 +16,7 @@ export default async function BlogPage() {
   return (
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
-      <p className="mt-2 text-foreground/60">
+      <p className="mt-2 text-foreground/70">
         Thoughts on engineering, architecture, and lessons learned.
       </p>
       {posts.length > 0 ? (
@@ -26,7 +26,7 @@ export default async function BlogPage() {
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-foreground/60">No posts yet. Check back soon.</p>
+        <p className="mt-10 text-foreground/70">No posts yet. Check back soon.</p>
       )}
     </Container>
   );

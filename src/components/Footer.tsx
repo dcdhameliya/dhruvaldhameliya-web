@@ -36,10 +36,18 @@ export function Footer() {
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800">
       <Container className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
-        <p className="text-sm text-foreground/60">
+        <p className="text-sm text-foreground/70">
           &copy; {new Date().getFullYear()} Dhruval Dhameliya
         </p>
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
+          <TrackedLink
+            trackAs="resume"
+            href="/dhruval_resume.pdf"
+            download
+            className="text-sm text-foreground/70 transition-colors hover:text-foreground"
+          >
+            Resume
+          </TrackedLink>
           {socialLinks.map((link) => (
             <TrackedLink
               key={link.href}
@@ -48,7 +56,7 @@ export function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/60 transition-colors hover:text-foreground"
+              className="text-foreground/70 transition-colors hover:text-foreground"
               aria-label={link.label}
             >
               {link.icon}

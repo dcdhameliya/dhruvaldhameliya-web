@@ -12,7 +12,7 @@ export default function HowIWorkPage() {
   return (
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">How I Work</h1>
-      <p className="mt-4 text-foreground/70 leading-relaxed">
+      <p className="mt-4 text-foreground/90 leading-relaxed">
         A look at how I think about building software — my principles,
         workflow, and what I value in engineering.
       </p>
@@ -23,7 +23,7 @@ export default function HowIWorkPage() {
           <h2 className="text-xl font-semibold tracking-tight">
             Engineering Philosophy
           </h2>
-          <ul className="mt-4 space-y-3 text-foreground/80 leading-relaxed">
+          <ul className="mt-4 space-y-3 text-foreground/90 leading-relaxed">
             <li className="flex gap-3">
               <span className="mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
               <span>
@@ -66,28 +66,28 @@ export default function HowIWorkPage() {
           <div className="mt-4 space-y-6">
             <div>
               <h3 className="font-medium">1. Understand the problem</h3>
-              <p className="mt-1 text-sm text-foreground/70 leading-relaxed">
+              <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
                 Before writing any code, I make sure I understand the why — the
                 user need, the business context, and the constraints.
               </p>
             </div>
             <div>
               <h3 className="font-medium">2. Design the approach</h3>
-              <p className="mt-1 text-sm text-foreground/70 leading-relaxed">
+              <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
                 I sketch out the architecture, identify edge cases early, and
                 pick the simplest approach that solves the problem well.
               </p>
             </div>
             <div>
               <h3 className="font-medium">3. Build incrementally</h3>
-              <p className="mt-1 text-sm text-foreground/70 leading-relaxed">
+              <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
                 Small, focused commits. Each step should leave the codebase in
                 a working state. I integrate early and often.
               </p>
             </div>
             <div>
               <h3 className="font-medium">4. Review and refine</h3>
-              <p className="mt-1 text-sm text-foreground/70 leading-relaxed">
+              <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
                 I actively seek code review feedback and treat it as a learning
                 opportunity. Clean code matters — it&apos;s a team asset.
               </p>
@@ -102,32 +102,32 @@ export default function HowIWorkPage() {
           </h2>
           <div className="mt-4 grid gap-6 sm:grid-cols-2">
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Languages
               </h3>
-              <p className="mt-1 text-foreground/80">
+              <p className="mt-1 text-foreground/90">
                 Kotlin, Java, Swift, Objective-C, JavaScript, TypeScript, C++
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Mobile
               </h3>
-              <p className="mt-1 text-foreground/80">
+              <p className="mt-1 text-foreground/90">
                 Android (Jetpack Compose), iOS (SwiftUI), React Native
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">Web</h3>
-              <p className="mt-1 text-foreground/80">
+              <h3 className="text-sm font-medium text-foreground/70">Web</h3>
+              <p className="mt-1 text-foreground/90">
                 React, Next.js, Tailwind CSS, Node.js
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-foreground/60">
+              <h3 className="text-sm font-medium text-foreground/70">
                 Backend &amp; Infra
               </h3>
-              <p className="mt-1 text-foreground/80">
+              <p className="mt-1 text-foreground/90">
                 Firebase, REST APIs, CI/CD
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function HowIWorkPage() {
           <h2 className="text-xl font-semibold tracking-tight">
             What I Value in Teams
           </h2>
-          <ul className="mt-4 space-y-2 text-foreground/80 leading-relaxed">
+          <ul className="mt-4 space-y-2 text-foreground/90 leading-relaxed">
             <li className="flex gap-3">
               <span className="mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
               Clear ownership and autonomy

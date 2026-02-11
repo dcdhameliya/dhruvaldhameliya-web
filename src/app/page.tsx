@@ -40,10 +40,10 @@ export default async function HomePage() {
         <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
           <span className="gradient-text">Dhruval Dhameliya</span>
         </h1>
-        <p className="animate-fade-in-up animation-delay-200 mt-3 text-lg font-medium text-foreground/60 sm:text-xl">
+        <p className="animate-fade-in-up animation-delay-200 mt-3 text-lg font-medium text-foreground/70 sm:text-xl">
           Software Engineer, Android @ Meta (Instagram)
         </p>
-        <p className="animate-fade-in-up animation-delay-200 mt-5 max-w-xl text-lg text-foreground/70 leading-relaxed">
+        <p className="animate-fade-in-up animation-delay-200 mt-5 max-w-xl text-lg text-foreground/80 leading-relaxed">
           Owning experimentation on Instagram Reels monetization. I write
           about mobile engineering, system design, and lessons learned
           shipping at scale.
@@ -52,7 +52,7 @@ export default async function HomePage() {
         {/* CTAs */}
         <div className="animate-fade-in-up animation-delay-300 mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="/resume.pdf"
+            href="/dhruval_resume.pdf"
             download
             className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all hover:bg-foreground/90 hover:shadow-lg hover:-translate-y-0.5"
           >
@@ -75,7 +75,7 @@ export default async function HomePage() {
             href="https://linkedin.com/in/dcdhameliya"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-foreground/50 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            className="inline-flex items-center gap-1.5 text-sm text-foreground/60 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
             aria-label="LinkedIn"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export default async function HomePage() {
             href="https://github.com/dcdhameliya"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-foreground/50 transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 text-sm text-foreground/60 transition-colors hover:text-foreground"
             aria-label="GitHub"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default async function HomePage() {
           <span className="text-foreground/20">|</span>
           <a
             href="mailto:hello@dhruvaldhameliya.com"
-            className="inline-flex items-center gap-1.5 text-sm text-foreground/50 transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 text-sm text-foreground/60 transition-colors hover:text-foreground"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -118,7 +118,7 @@ export default async function HomePage() {
             </h2>
             <Link
               href="/projects"
-              className="text-sm text-foreground/60 hover:text-foreground"
+              className="text-sm text-foreground/70 hover:text-foreground"
             >
               View all
             </Link>
@@ -140,7 +140,7 @@ export default async function HomePage() {
             </h2>
             <Link
               href="/blog"
-              className="text-sm text-foreground/60 hover:text-foreground"
+              className="text-sm text-foreground/70 hover:text-foreground"
             >
               View all
             </Link>

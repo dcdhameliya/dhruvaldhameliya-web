@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
             {frontmatter.title}
           </h1>
-          <p className="mt-3 text-sm text-foreground/60">
+          <p className="mt-3 text-sm text-foreground/70">
             {formatDate(frontmatter.date)}
             <span className="mx-2">&middot;</span>
             {readingTime}
@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
               {frontmatter.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-foreground/70 dark:bg-neutral-800"
+                  className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-foreground/80 dark:bg-neutral-800"
                 >
                   {tag}
                 </span>

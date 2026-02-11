@@ -1,18 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [mounted, setMounted] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("theme");
     if (stored === "dark" || stored === "light") {
       setTheme(stored);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
     }
   }, []);
 
@@ -27,21 +28,59 @@ export function ThemeToggle() {
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
-  // Render placeholder with same dimensions to prevent layout shift
+  function toggle() {
+    if (isAnimating) return;
+
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    // Try View Transitions API (modern browsers)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const doc = document as any;
+    if (typeof doc.startViewTransition === "function" && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      const maxRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      document.documentElement.style.setProperty("--toggle-x", `${x}px`);
+      document.documentElement.style.setProperty("--toggle-y", `${y}px`);
+      document.documentElement.style.setProperty("--toggle-radius", `${maxRadius}px`);
+
+      setIsAnimating(true);
+      const transition = doc.startViewTransition.call(doc, () => {
+        setTheme(newTheme);
+      });
+      transition.finished.then(() => setIsAnimating(false));
+    } else {
+      // Fallback: simple transition for older browsers
+      setIsAnimating(true);
+      document.documentElement.classList.add("theme-transition");
+      setTheme(newTheme);
+      setTimeout(() => {
+        document.documentElement.classList.remove("theme-transition");
+        setIsAnimating(false);
+      }, 500);
+    }
+  }
+
   if (!mounted) {
     return <div className="h-9 w-9" />;
   }
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="rounded-lg p-2 text-foreground/70 transition-colors hover:bg-neutral-100 hover:text-foreground dark:hover:bg-neutral-800"
+      ref={buttonRef}
+      onClick={toggle}
+      className="rounded-lg p-2 text-foreground/80 transition-colors hover:bg-neutral-100 hover:text-foreground dark:hover:bg-neutral-800"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {theme === "dark" ? (
-        // Sun icon
         <svg
-          className="theme-toggle-icon h-5 w-5"
+          className={`h-5 w-5 transition-transform duration-500 ${isAnimating ? "animate-spin-once" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -54,9 +93,8 @@ export function ThemeToggle() {
           />
         </svg>
       ) : (
-        // Moon icon
         <svg
-          className="theme-toggle-icon h-5 w-5"
+          className={`h-5 w-5 transition-transform duration-500 ${isAnimating ? "animate-spin-once" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
