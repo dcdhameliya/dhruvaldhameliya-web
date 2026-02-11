@@ -1,0 +1,132 @@
+---
+title: "From Feature Request to Production: How I Think End-to-End"
+description: "How I approach building a feature from the initial request through design, implementation, testing, and production rollout."
+date: "2025-08-18"
+tags: ["android", "engineering", "process", "best-practices"]
+---
+
+A feature request is just the starting point. The distance between "we need X" and "X is live and working for millions of users" is filled with decisions that determine whether the feature ships smoothly or becomes a months-long saga. Here's how I think through that journey.
+
+## Key Takeaways
+
+- Clarify scope before writing any code — the biggest waste of time is building the wrong thing.
+- Design for the unhappy path first. The happy path usually takes care of itself.
+- Break work into shippable increments, not architectural layers.
+- Production readiness means monitoring, rollback capability, and experiment support.
+
+## Phase 1: Understanding the Request
+
+Before I open my IDE, I spend time understanding what's actually being asked. A feature request like "add a share button to articles" sounds simple, but the details matter:
+
+- Share to where? System share sheet? Specific platforms? Deep links?
+- What gets shared? Title + URL? A preview image? The full article text?
+- What about articles behind a paywall? Do we share a preview or a locked link?
+- How do we track if sharing drives engagement?
+
+I write these questions down and get answers before starting. I've learned the hard way that assumptions made during implementation are almost always wrong.
+
+## Phase 2: Scoping and Slicing
+
+Once I understand the feature, I break it into slices that can each be shipped independently. Not layers — slices. Each slice delivers user-visible value.
+
+For the share feature:
+```
+Slice 1: Share button → system share sheet (title + URL)
+Slice 2: Add share tracking analytics
+Slice 3: Custom share preview with image
+Slice 4: Deep link support for shared articles
+```
+
+Each slice can be behind a feature flag and tested independently. If priorities change after Slice 2, we've still shipped a working share feature.
+
+## Phase 3: Technical Design
+
+For anything non-trivial, I write a brief technical design before coding. Not a formal document — usually just notes that answer:
+
+1. **Where does this code live?** Which module, which package, which layer?
+2. **What's the data flow?** From user tap to API call to UI update.
+3. **What are the edge cases?** No network, empty state, error state.
+4. **What changes to existing code?** Am I modifying a shared component? Will this affect other features?
+
+```kotlin
+// Example: Share feature data flow sketch
+// User taps share → ArticleScreen handles event
+//   → ViewModel creates ShareContent from article data
+//   → ShareContent passed to ShareHandler (platform abstraction)
+//   → Analytics event fired after share intent launched
+
+data class ShareContent(
+    val title: String,
+    val url: String,
+    val previewText: String
+)
+
+class ShareHandler @Inject constructor(
+    private val analytics: AnalyticsTracker
+) {
+    fun share(context: Context, content: ShareContent) {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, content.title)
+            putExtra(Intent.EXTRA_TEXT, "${content.title}\n${content.url}")
+        }
+        context.startActivity(Intent.createChooser(intent, "Share article"))
+        analytics.track(ShareEvent(content.title))
+    }
+}
+```
+
+## Phase 4: Implementation
+
+When I start coding, I follow a consistent order:
+
+1. **Data layer first.** If there's an API call or data model change, build and verify it.
+2. **ViewModel next.** Wire up the business logic and state management.
+3. **UI last.** Connect the composable to the ViewModel.
+4. **Tests alongside.** I write tests as I go, not after. If I can't test something easily, the design is probably wrong.
+
+I commit frequently — at least once per logical step. Small commits make code review easier and rollbacks safer.
+
+## Phase 5: Code Review Mindset
+
+When my PR is ready, I review it myself first. I look for:
+
+- **Naming:** Would someone unfamiliar with this feature understand the names?
+- **Error handling:** What happens when things fail? Did I handle every error path?
+- **Thread safety:** Am I accessing shared state from multiple coroutines?
+- **Memory leaks:** Am I holding references that outlive their scope?
+
+I also write a clear PR description that explains the why, not just the what. Reviewers need context to give useful feedback.
+
+## Phase 6: Testing Beyond Unit Tests
+
+Unit tests verify logic. But before I call a feature complete, I also manually test:
+
+- **Configuration changes:** Rotate the device mid-flow. Is state preserved?
+- **Process death:** Enable "Don't keep activities" in developer options. Navigate away and back.
+- **Slow network:** Use the network profiler to simulate 2G. Does the UI handle the delay?
+- **Accessibility:** Can the feature be used with TalkBack? Are touch targets large enough?
+
+These checks catch bugs that unit tests miss. I've found production issues in every single one of these categories.
+
+## Phase 7: Production Rollout
+
+Shipping code is not the same as shipping a feature. My rollout checklist:
+
+- [ ] Feature is behind an experiment/feature flag
+- [ ] Logging is in place — key events, errors, latency
+- [ ] Alerts configured for crash rate and error rate regressions
+- [ ] Rollback plan documented (usually just: turn off the flag)
+- [ ] Rollout plan: 1% → 10% → 50% → 100% with metric checks at each stage
+
+## What I've Learned the Hard Way
+
+**Scope creep kills momentum.** A feature that was supposed to take a week but grew to three weeks usually isn't three times better. Guard the scope aggressively.
+
+**The first version should be embarrassingly simple.** Ship the basic version, validate that users want it, then iterate. I've seen teams spend months building elaborate features that nobody used.
+
+**Communication matters as much as code.** Keeping stakeholders updated on progress, blockers, and trade-offs prevents surprises. A quick "this is taking longer because X, here's the plan" message goes a long way.
+
+## Final Thought
+
+Building features end-to-end is a skill that goes beyond writing code. It's about asking the right questions early, making the right trade-offs during implementation, and being rigorous about quality before and after launch. The engineers I admire most aren't just great coders — they're great at the entire process.

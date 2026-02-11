@@ -1,0 +1,140 @@
+---
+title: "My Principles for Writing Maintainable Android Code"
+description: "Code that works today but can't be changed tomorrow is tech debt waiting to happen. Here are the principles I follow to write Android code that lasts."
+date: "2025-11-10"
+tags: ["android", "clean-code", "architecture", "kotlin"]
+---
+
+I've worked on codebases that were a joy to modify and codebases that made me dread every pull request. The difference was never about the framework or language — it was about the principles the team followed.
+
+## Key Takeaways
+
+- Maintainable code is code that's easy to change, not code that's clever.
+- Naming is the most underrated tool for readability.
+- Small, focused classes beat large, "smart" ones every time.
+- Delete code aggressively — dead code is worse than no code.
+
+## Principle 1: Optimize for Readability, Not Cleverness
+
+```kotlin
+// Clever but hard to read
+val result = items.flatMap { it.tags }
+    .groupBy { it }
+    .mapValues { it.value.size }
+    .entries.sortedByDescending { it.value }
+    .take(5)
+    .map { it.key }
+
+// Clear and maintainable
+val allTags = items.flatMap { it.tags }
+val tagCounts = allTags.groupingBy { it }.eachCount()
+val topFiveTags = tagCounts.entries
+    .sortedByDescending { it.value }
+    .take(5)
+    .map { it.key }
+```
+
+Both produce the same result. The second version is longer but every engineer on the team can understand it immediately. In a codebase that multiple people touch daily, that clarity compounds.
+
+## Principle 2: Name Things for What They Do, Not How
+
+```kotlin
+// Bad: describes implementation
+fun fetchDataFromNetworkAndCache()
+
+// Good: describes intent
+fun refreshArticles()
+```
+
+The caller doesn't care that data comes from the network and gets cached. They care that articles get refreshed. When the implementation changes (maybe you switch from REST to GraphQL), the good name still makes sense.
+
+## Principle 3: One Class, One Reason to Change
+
+Every time I create a class, I ask: "What would cause this class to change?" If the answer is more than one thing, it's doing too much.
+
+```kotlin
+// Too many reasons to change
+class UserManager {
+    fun login(email: String, password: String) { /* ... */ }
+    fun formatDisplayName(user: User): String { /* ... */ }
+    fun validateEmail(email: String): Boolean { /* ... */ }
+    fun trackLoginEvent(user: User) { /* ... */ }
+}
+
+// Each class has one job
+class AuthRepository { fun login(email: String, password: String) { /* ... */ } }
+class UserFormatter { fun displayName(user: User): String { /* ... */ } }
+class EmailValidator { fun isValid(email: String): Boolean { /* ... */ } }
+class AnalyticsTracker { fun trackLogin(user: User) { /* ... */ } }
+```
+
+## Principle 4: Make Illegal States Unrepresentable
+
+Use Kotlin's type system to prevent bugs at compile time, not runtime:
+
+```kotlin
+// Bad: nullable fields create ambiguity
+data class NetworkResult(
+    val data: List<Article>?,
+    val error: String?,
+    val isLoading: Boolean
+)
+
+// Good: sealed class makes states explicit
+sealed class NetworkResult {
+    data object Loading : NetworkResult()
+    data class Success(val articles: List<Article>) : NetworkResult()
+    data class Error(val message: String) : NetworkResult()
+}
+```
+
+With the sealed class approach, you can never accidentally access `data` while in an error state. The compiler enforces correctness.
+
+## Principle 5: Delete Ruthlessly
+
+Dead code, commented-out blocks, unused imports, deprecated methods that "might be needed later" — delete them all. Version control exists for a reason.
+
+Every line of dead code:
+- Adds cognitive load for readers
+- Shows up in search results, causing confusion
+- Needs to compile, slowing down builds
+- Creates the illusion of functionality that doesn't exist
+
+If you need it later, `git log` has your back.
+
+## Principle 6: Tests Should Document Behavior
+
+Good tests read like specifications:
+
+```kotlin
+@Test
+fun `login with valid credentials returns user token`() { /* ... */ }
+
+@Test
+fun `login with wrong password returns authentication error`() { /* ... */ }
+
+@Test
+fun `login with no network returns cached session if available`() { /* ... */ }
+```
+
+Someone reading these test names understands the login feature's behavior without reading a single line of implementation code.
+
+## Principle 7: Dependency Injection Is About Flexibility, Not Frameworks
+
+I use Hilt because it's the Android standard, but the principle matters more than the tool. The goal is simple: classes should receive their dependencies, not create them.
+
+```kotlin
+// Hard to test, hard to change
+class ArticleViewModel {
+    private val repo = ArticleRepository(RetrofitClient.create())
+}
+
+// Flexible and testable
+class ArticleViewModel @Inject constructor(
+    private val repo: ArticleRepository
+) { /* ... */ }
+```
+
+## Final Thought
+
+Maintainable code isn't about following rules blindly. It's about making life easier for the next person who touches your code — which is often future you. Every shortcut you take today becomes a tax you pay tomorrow.

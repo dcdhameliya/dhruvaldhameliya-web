@@ -1,0 +1,142 @@
+---
+title: "Handling App Complexity Without Over-Engineering"
+description: "How I manage growing complexity in Android apps without falling into the trap of building abstractions nobody asked for."
+date: "2025-09-01"
+tags: ["android", "architecture", "engineering", "kotlin"]
+---
+
+Every codebase I've worked on has a tipping point — the moment where the team either manages complexity well or starts drowning in it. The instinct is usually to add more layers, more abstractions, more patterns. But I've learned that the cure can be worse than the disease.
+
+## Key Takeaways
+
+- Complexity should be proportional to the problem, not the team's ambition.
+- Most abstractions are premature. Wait for the third use case before extracting.
+- Feature flags and configuration solve problems that architecture patterns can't.
+- The simplest solution that works is the best solution.
+
+## The Over-Engineering Trap
+
+I've seen a pattern repeat across multiple teams: an engineer reads about Clean Architecture, MVVM, MVI, or some other pattern, and suddenly every feature needs five layers, three interfaces, and a dependency injection graph that takes 10 minutes to trace.
+
+A login screen doesn't need:
+- `LoginUseCase` that calls `LoginRepository` that calls `LoginRemoteDataSource` that calls `LoginApi`
+- When `LoginViewModel` calling `AuthRepository` directly works perfectly fine
+
+The question I always ask: **Is this layer doing something, or is it just existing?**
+
+## How I Decide When to Add Complexity
+
+I use a simple decision tree:
+
+```
+Is the current approach causing real problems?
+├── No → Don't change it
+└── Yes → What's the simplest fix?
+    ├── Rename/restructure existing code → Do that
+    └── Need new abstraction → Will it be used 3+ times?
+        ├── No → Inline the logic, add a comment
+        └── Yes → Extract it
+```
+
+Real problems mean: bugs that keep recurring, features that take too long to add, or code that multiple engineers consistently misunderstand. "It doesn't feel clean" is not a real problem.
+
+## Practical Strategies I Use
+
+### Strategy 1: Vertical Slices Over Horizontal Layers
+
+Instead of organizing code by architectural layer (all repositories together, all ViewModels together), I organize by feature:
+
+```
+features/
+  auth/
+    AuthViewModel.kt
+    AuthRepository.kt
+    LoginScreen.kt
+  feed/
+    FeedViewModel.kt
+    FeedRepository.kt
+    FeedScreen.kt
+  profile/
+    ProfileViewModel.kt
+    ProfileRepository.kt
+    ProfileScreen.kt
+```
+
+When I need to change the login flow, everything I need is in one directory. I don't need to jump between five different packages.
+
+### Strategy 2: Start Without Interfaces
+
+This is controversial, but I don't create interfaces until I have a reason to. A `UserRepository` class is fine. If I later need to swap implementations or mock it in tests, I can extract an interface then. Kotlin makes this trivial with IDE refactoring.
+
+```kotlin
+// Start here
+class UserRepository @Inject constructor(
+    private val api: UserApi,
+    private val dao: UserDao
+) {
+    fun observeUser(id: String): Flow<User> = dao.observe(id)
+}
+
+// Extract interface only when needed (testing, multiple implementations)
+```
+
+Most repositories in most apps will only ever have one implementation. Creating an interface "just in case" adds cognitive overhead for no benefit.
+
+### Strategy 3: Use Data Classes as Your Domain Model
+
+I've seen projects where the domain model is an elaborate class hierarchy with inheritance and abstract methods. For most Android apps, data classes are all you need:
+
+```kotlin
+data class Article(
+    val id: String,
+    val title: String,
+    val body: String,
+    val author: Author,
+    val publishedAt: Instant,
+    val tags: List<String>
+)
+```
+
+If you need behavior, add extension functions. If you need validation, add a factory method. You don't need an `ArticleEntity`, `ArticleDomainModel`, and `ArticleUiModel` unless each genuinely has different fields.
+
+### Strategy 4: Configuration Over Code
+
+When a feature needs to behave differently in different contexts, I reach for configuration before code:
+
+```kotlin
+data class FeatureConfig(
+    val maxRetries: Int = 3,
+    val cacheTimeoutMs: Long = 5 * 60 * 1000,
+    val enableOfflineMode: Boolean = true,
+    val pageSize: Int = 20
+)
+
+class ArticleRepository @Inject constructor(
+    private val config: FeatureConfig,
+    private val api: ArticleApi,
+    private val cache: ArticleDao
+) {
+    // Behavior changes based on config, not subclasses
+}
+```
+
+This is simpler than creating `OnlineArticleRepository` and `OfflineArticleRepository` with a `ArticleRepositoryFactory` to choose between them.
+
+## Signs You've Over-Engineered
+
+- New team members take more than a day to understand the architecture.
+- Adding a simple feature requires touching 5+ files.
+- You have interfaces with exactly one implementation.
+- Your dependency injection module is longer than your actual business logic.
+- You spend more time on architecture discussions than on user-facing features.
+
+## Signs You Need More Structure
+
+- The same bug keeps appearing in different features because there's no shared pattern.
+- Two engineers implement the same thing differently and neither approach is clearly better.
+- You can't test a critical path because dependencies are hardcoded.
+- A change in one feature unexpectedly breaks another.
+
+## Final Thought
+
+Complexity is a budget. Every abstraction, every layer, every pattern you add spends from that budget. Spend it where it matters — on the parts of your app that are genuinely complex, that change often, or that need to be rock-solid. For everything else, keep it simple and move on.

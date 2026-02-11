@@ -1,0 +1,167 @@
+---
+title: "State Management in Jetpack Compose: What Works in Practice"
+description: "A practical guide to managing state in Jetpack Compose — what I use, what I avoid, and why simplicity wins."
+date: "2025-09-15"
+tags: ["android", "jetpack-compose", "state-management", "kotlin"]
+---
+
+State management in Compose is deceptively simple on the surface. `remember`, `mutableStateOf`, done. But as your app grows, the choices you make about where state lives and how it flows determine whether your codebase stays manageable or becomes a tangled mess.
+
+## Key Takeaways
+
+- Not all state belongs in the ViewModel — UI state and business state are different.
+- `StateFlow` + `collectAsStateWithLifecycle` is the most reliable pattern for production apps.
+- Derived state reduces bugs by eliminating state synchronization problems.
+- State holders are underused and solve real problems.
+
+## Where State Should Live
+
+I categorize state into three buckets:
+
+| State Type | Where It Lives | Example |
+|-----------|---------------|---------|
+| UI state | Composable (`remember`) | Scroll position, text field focus |
+| Screen state | ViewModel (`StateFlow`) | Loading, error, data |
+| App state | Singleton / DataStore | Auth token, theme preference |
+
+The mistake I see most often: putting everything in the ViewModel. A text field's focus state doesn't need to survive configuration changes. A scroll position doesn't need to be in a `StateFlow`. Keep UI-only state in the composable.
+
+## The Pattern I Use for Every Screen
+
+```kotlin
+// 1. Define the state
+data class ProfileUiState(
+    val user: User? = null,
+    val isLoading: Boolean = true,
+    val error: String? = null,
+    val isEditing: Boolean = false
+)
+
+// 2. Sealed interface for events
+sealed interface ProfileEvent {
+    data object EditClicked : ProfileEvent
+    data class NameChanged(val name: String) : ProfileEvent
+    data object SaveClicked : ProfileEvent
+}
+
+// 3. ViewModel exposes state, handles events
+class ProfileViewModel @Inject constructor(
+    private val userRepo: UserRepository
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(ProfileUiState())
+    val uiState: StateFlow<ProfileUiState> = _uiState.asStateFlow()
+
+    fun onEvent(event: ProfileEvent) {
+        when (event) {
+            is ProfileEvent.EditClicked ->
+                _uiState.update { it.copy(isEditing = true) }
+            is ProfileEvent.NameChanged ->
+                _uiState.update { it.copy(user = it.user?.copy(name = event.name)) }
+            is ProfileEvent.SaveClicked -> saveProfile()
+        }
+    }
+
+    private fun saveProfile() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            userRepo.updateUser(_uiState.value.user!!)
+                .onSuccess { _uiState.update { it.copy(isEditing = false, isLoading = false) } }
+                .onFailure { e -> _uiState.update { it.copy(error = e.message, isLoading = false) } }
+        }
+    }
+}
+
+// 4. Composable collects and renders
+@Composable
+fun ProfileScreen(viewModel: ProfileViewModel = hiltViewModel()) {
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    ProfileContent(state = state, onEvent = viewModel::onEvent)
+}
+```
+
+This pattern scales to every screen I've built. The composable is stateless and testable. The ViewModel is the single source of truth. Events flow up, state flows down.
+
+## Derived State: Eliminate Synchronization Bugs
+
+One of the most common bugs I see is keeping two pieces of state that should be derived from each other:
+
+```kotlin
+// Bug-prone: two sources of truth
+var items by mutableStateOf(emptyList<Item>())
+var itemCount by mutableStateOf(0) // Will this always match items.size?
+
+// Better: derive it
+var items by mutableStateOf(emptyList<Item>())
+val itemCount: Int get() = items.size
+```
+
+In ViewModels, I use `combine` and `map` to derive state from multiple flows:
+
+```kotlin
+val uiState: StateFlow<SearchUiState> = combine(
+    searchQuery,
+    allItems,
+    selectedFilter
+) { query, items, filter ->
+    val filtered = items
+        .filter { it.matchesFilter(filter) }
+        .filter { it.matchesQuery(query) }
+    SearchUiState(
+        items = filtered,
+        resultCount = filtered.size,
+        isFiltered = filter != Filter.All
+    )
+}.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), SearchUiState())
+```
+
+No synchronization needed. The state is always consistent because it's computed from a single source.
+
+## State Holders for Complex UI Logic
+
+When a composable has complex UI logic that doesn't belong in the ViewModel, I use a state holder:
+
+```kotlin
+class SearchBarState(
+    initialQuery: String = ""
+) {
+    var query by mutableStateOf(initialQuery)
+        private set
+    var isExpanded by mutableStateOf(false)
+        private set
+    var suggestions by mutableStateOf(emptyList<String>())
+        private set
+
+    fun onQueryChange(newQuery: String) {
+        query = newQuery
+        isExpanded = newQuery.isNotEmpty()
+    }
+
+    fun onSuggestionSelected(suggestion: String) {
+        query = suggestion
+        isExpanded = false
+    }
+
+    fun collapse() {
+        isExpanded = false
+    }
+}
+
+@Composable
+fun rememberSearchBarState(initialQuery: String = "") =
+    remember { SearchBarState(initialQuery) }
+```
+
+This keeps the composable clean, the ViewModel focused on business logic, and the UI logic testable without a ViewModel.
+
+## What I Avoid
+
+**MutableLiveData in new code.** `StateFlow` works better with Compose and coroutines. LiveData was built for the View system.
+
+**Channel for UI events.** I used to use `Channel` for one-shot events like showing a snackbar. Now I model them as state with a consumed flag or use `SharedFlow` with care. Channels can lose events during configuration changes.
+
+**Storing navigation state in the ViewModel.** Navigation is a side effect, not state. I trigger navigation via callbacks, not by observing ViewModel state.
+
+## Final Thought
+
+The best state management approach is the one that makes bugs obvious. If your state can get out of sync, it will. If your state is derived from a single source, it can't. Start simple, use `StateFlow`, derive what you can, and only reach for more complex solutions when the simpler ones genuinely don't work.
