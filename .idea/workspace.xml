@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d829ee7-2656-414c-a50a-30cbcc7b6b05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.claude/skills/build-website.md" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/skills/build-website.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/how-i-work/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/how-i-work/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/resume/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/resume/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/common-android-architecture-mistakes-and-how-i-avoid-them.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/common-android-architecture-mistakes-and-how-i-avoid-them.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/from-feature-request-to-production-how-i-think-end-to-end.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/from-feature-request-to-production-how-i-think-end-to-end.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/handling-app-complexity-without-over-engineering.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/handling-app-complexity-without-over-engineering.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/content/blog/how-i-approach-system-design-as-a-mobile-app-engineer.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-i-approach-system-design-as-a-mobile-app-engineer.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/how-i-think-about-performance-bottlenecks-in-android.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-i-think-about-performance-bottlenecks-in-android.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/jetpack-compose-architecture-patterns-that-scale.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/jetpack-compose-architecture-patterns-that-scale.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/lessons-from-building-android-features-used-at-scale.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/lessons-from-building-android-features-used-at-scale.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/my-principles-for-writing-maintainable-android-code.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/my-principles-for-writing-maintainable-android-code.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/what-i-focus-on-when-performance-actually-matters-in-android-apps.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/what-i-focus-on-when-performance-actually-matters-in-android-apps.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/codeview-android-library.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/codeview-android-library.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/diamonds-on-call.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/diamonds-on-call.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/green-clippings.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/green-clippings.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/khaliques-sa.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/khaliques-sa.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/sober-love.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/sober-love.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/tes-total-evaluation-system.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/tes-total-evaluation-system.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/projects/ydplayer-video-player.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/projects/ydplayer-video-player.mdx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770542968869</updated>
       <workItem from="1770542970111" duration="18603000" />
-      <workItem from="1770760270865" duration="17692000" />
+      <workItem from="1770760270865" duration="18400000" />
     </task>
     <servers />
   </component>

@@ -28,13 +28,13 @@ I think of every feature as four layers:
 
 ```
 ┌──────────────────────┐
-│     UI Layer          │  Composables / Views
+│     UI Layer         │  Composables / Views
 ├──────────────────────┤
-│     Domain Layer      │  Use cases, business rules
+│     Domain Layer     │  Use cases, business rules
 ├──────────────────────┤
-│     Data Layer        │  Repositories, caching
+│     Data Layer       │  Repositories, caching
 ├──────────────────────┤
-│     Network Layer     │  API clients, serialization
+│     Network Layer    │  API clients, serialization
 └──────────────────────┘
 ```
 
@@ -77,14 +77,16 @@ For lists with thousands of items, I use cursor-based pagination with Paging 3. 
 ## Trade-offs I Think About
 
 Every design decision involves trade-offs. Here are the ones I weigh most often:
-
-| Decision | Trade-off |
-|----------|-----------|
-| Cache aggressively | Faster UX vs. stale data risk |
-| Normalize data locally | Consistency vs. query complexity |
-| Use a single Activity | Flexibility vs. deep link complexity |
-| Modularize by feature | Build speed vs. cross-feature dependencies |
-
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ Decision               │ Trade-off                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Cache aggressively     │ Faster UX vs. stale data risk              │
+│ Normalize data locally │ Consistency vs. query complexity           │
+│ Use a single Activity  │ Flexibility vs. deep link complexity       │
+│ Modularize by feature  │ Build speed vs. cross-feature dependencies │
+└─────────────────────────────────────────────────────────────────────┘
+```
 ## When I Know the Design Is Right
 
 A good mobile architecture passes three tests:
