@@ -1,4 +1,4 @@
-# Claude Skills File — dhruvaldhameliya.com
+# Claude Skills File - dhruvaldhameliya.com
 
 > Project: Personal website + blog for Dhruval Dhameliya
 > Stack: Next.js (App Router) + TypeScript + Tailwind + MDX
@@ -285,7 +285,7 @@ ecosystem.config.js      # PM2 deployment config (port 3000, Firebase env vars)
 ### BigQuery Export
 
 - Firebase Analytics linked to **Google BigQuery** for event exploration
-- Daily export (free tier) — events appear in BigQuery ~24 hours after collection
+- Daily export (free tier) - events appear in BigQuery ~24 hours after collection
 - BigQuery dataset: `analytics_XXXXXXX` in project `dhruvaldhameliya-web`
 - Tables: `events_YYYYMMDD` (one per day)
 - All custom events (`visitor_details`, `outbound_click`, etc.) automatically exported

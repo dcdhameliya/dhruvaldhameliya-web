@@ -32,7 +32,7 @@ export default function ContactPage() {
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">Contact</h1>
       <p className="mt-4 text-foreground/80 leading-relaxed">
-        Feel free to reach out — whether it&apos;s about a role, a project, or
+        Feel free to reach out - whether it&apos;s about a role, a project, or
         just to connect.
       </p>
 

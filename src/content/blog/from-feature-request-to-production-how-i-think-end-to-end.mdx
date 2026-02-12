@@ -9,7 +9,7 @@ A feature request is just the starting point. The distance between "we need X" a
 
 ## Key Takeaways
 
-- Clarify scope before writing any code — the biggest waste of time is building the wrong thing.
+- Clarify scope before writing any code - the biggest waste of time is building the wrong thing.
 - Design for the unhappy path first. The happy path usually takes care of itself.
 - Break work into shippable increments, not architectural layers.
 - Production readiness means monitoring, rollback capability, and experiment support.
@@ -27,7 +27,7 @@ I write these questions down and get answers before starting. I've learned the h
 
 ## Phase 2: Scoping and Slicing
 
-Once I understand the feature, I break it into slices that can each be shipped independently. Not layers — slices. Each slice delivers user-visible value.
+Once I understand the feature, I break it into slices that can each be shipped independently. Not layers - slices. Each slice delivers user-visible value.
 
 For the share feature:
 ```
@@ -41,7 +41,7 @@ Each slice can be behind a feature flag and tested independently. If priorities 
 
 ## Phase 3: Technical Design
 
-For anything non-trivial, I write a brief technical design before coding. Not a formal document — usually just notes that answer:
+For anything non-trivial, I write a brief technical design before coding. Not a formal document - usually just notes that answer:
 
 1. **Where does this code live?** Which module, which package, which layer?
 2. **What's the data flow?** From user tap to API call to UI update.
@@ -85,7 +85,7 @@ When I start coding, I follow a consistent order:
 3. **UI last.** Connect the composable to the ViewModel.
 4. **Tests alongside.** I write tests as I go, not after. If I can't test something easily, the design is probably wrong.
 
-I commit frequently — at least once per logical step. Small commits make code review easier and rollbacks safer.
+I commit frequently - at least once per logical step. Small commits make code review easier and rollbacks safer.
 
 ## Phase 5: Code Review Mindset
 
@@ -114,7 +114,7 @@ These checks catch bugs that unit tests miss. I've found production issues in ev
 Shipping code is not the same as shipping a feature. My rollout checklist:
 
 - [ ] Feature is behind an experiment/feature flag
-- [ ] Logging is in place — key events, errors, latency
+- [ ] Logging is in place - key events, errors, latency
 - [ ] Alerts configured for crash rate and error rate regressions
 - [ ] Rollback plan documented (usually just: turn off the flag)
 - [ ] Rollout plan: 1% → 10% → 50% → 100% with metric checks at each stage
@@ -129,4 +129,4 @@ Shipping code is not the same as shipping a feature. My rollout checklist:
 
 ## Final Thought
 
-Building features end-to-end is a skill that goes beyond writing code. It's about asking the right questions early, making the right trade-offs during implementation, and being rigorous about quality before and after launch. The engineers I admire most aren't just great coders — they're great at the entire process.
+Building features end-to-end is a skill that goes beyond writing code. It's about asking the right questions early, making the right trade-offs during implementation, and being rigorous about quality before and after launch. The engineers I admire most aren't just great coders - they're great at the entire process.

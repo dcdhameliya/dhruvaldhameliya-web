@@ -1,6 +1,6 @@
 ---
 title: "Lessons From Building Android Features Used at Scale"
-description: "What I've learned shipping Android features to massive user bases — from experimentation to monitoring to knowing when to ship."
+description: "What I've learned shipping Android features to massive user bases - from experimentation to monitoring to knowing when to ship."
 date: "2025-11-28"
 tags: ["android", "scale", "engineering", "lessons"]
 ---
@@ -10,7 +10,7 @@ Shipping code that runs on millions of devices is a different game than shipping
 ## Key Takeaways
 
 - At scale, every edge case is someone's main case.
-- Experimentation is not optional — it's how you make decisions.
+- Experimentation is not optional - it's how you make decisions.
 - Monitoring matters more than testing alone.
 - Rollbacks need to be instant, not "we'll fix it in the next release."
 
@@ -20,7 +20,7 @@ When your feature reaches millions of users, statistical improbabilities become 
 
 I've learned to think about edge cases differently:
 
-- **What happens if this API call takes 30 seconds?** Not just "timeout" — what does the user see during those 30 seconds?
+- **What happens if this API call takes 30 seconds?** Not just "timeout" - what does the user see during those 30 seconds?
 - **What if the user rapidly taps this button?** Debouncing isn't just nice-to-have, it prevents duplicate transactions.
 - **What if the device has 512MB of RAM?** Your bitmap loading strategy matters a lot more than you think.
 
@@ -46,14 +46,14 @@ At each stage, I'm looking at specific metrics: crash rate, latency, engagement,
 
 ## The Metric That Matters Most
 
-Early in my career, I focused on crash-free rate as the primary quality signal. It's important, but it's not enough. A feature can be crash-free and still be broken — slow renders, janky scrolling, or incorrect data all degrade the user experience without crashing.
+Early in my career, I focused on crash-free rate as the primary quality signal. It's important, but it's not enough. A feature can be crash-free and still be broken - slow renders, janky scrolling, or incorrect data all degrade the user experience without crashing.
 
 The metrics I watch closely:
 
-1. **ANR rate** — More insidious than crashes. A frozen app is worse than a crashed one because the user waits.
-2. **P95 render time** — Average render time hides problems. The 95th percentile tells you how bad it gets.
-3. **Engagement delta** — If users start using your feature less after a change, something's wrong even if it's technically "working."
-4. **Error rate by device tier** — Low-end devices often reveal problems that high-end devices mask.
+1. **ANR rate** - More insidious than crashes. A frozen app is worse than a crashed one because the user waits.
+2. **P95 render time** - Average render time hides problems. The 95th percentile tells you how bad it gets.
+3. **Engagement delta** - If users start using your feature less after a change, something's wrong even if it's technically "working."
+4. **Error rate by device tier** - Low-end devices often reveal problems that high-end devices mask.
 
 ## What I Got Wrong Early On
 
@@ -61,7 +61,7 @@ The metrics I watch closely:
 I once spent two weeks optimizing a RecyclerView adapter for a list that had at most 20 items. The optimization was technically correct but practically pointless. Now I profile first and optimize only where the data tells me to.
 
 ### Ignoring configuration changes
-I assumed `ViewModel` would handle everything. It doesn't survive process death. I learned to use `SavedStateHandle` after losing user input on a critical flow — in production.
+I assumed `ViewModel` would handle everything. It doesn't survive process death. I learned to use `SavedStateHandle` after losing user input on a critical flow - in production.
 
 ### Testing only the happy path
 My early tests verified that things worked when everything went right. They never tested what happened when the network returned a 500 or the database was corrupted. Those are the tests that actually catch production bugs.
@@ -70,11 +70,11 @@ My early tests verified that things worked when everything went right. They neve
 
 The features that survive at scale share common patterns:
 
-- **Idempotent operations** — If the user retries, nothing breaks.
-- **Graceful degradation** — If a dependency is down, show what you can.
-- **Circuit breakers** — If an API is failing, stop calling it and use cached data.
-- **Feature flags** — If something goes wrong, turn it off without an app update.
+- **Idempotent operations** - If the user retries, nothing breaks.
+- **Graceful degradation** - If a dependency is down, show what you can.
+- **Circuit breakers** - If an API is failing, stop calling it and use cached data.
+- **Feature flags** - If something goes wrong, turn it off without an app update.
 
 ## Final Thought
 
-Scale teaches you humility. You learn that your assumptions are wrong, your tests are incomplete, and your monitoring is never good enough. The best engineers I've worked with aren't the ones who write perfect code — they're the ones who build systems that fail gracefully and recover quickly.
+Scale teaches you humility. You learn that your assumptions are wrong, your tests are incomplete, and your monitoring is never good enough. The best engineers I've worked with aren't the ones who write perfect code - they're the ones who build systems that fail gracefully and recover quickly.

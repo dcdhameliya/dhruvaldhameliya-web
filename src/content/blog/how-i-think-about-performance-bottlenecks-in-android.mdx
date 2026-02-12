@@ -1,15 +1,15 @@
 ---
 title: "How I Think About Performance Bottlenecks in Android"
-description: "A systematic approach to finding and fixing performance bottlenecks in Android apps — from identifying symptoms to measuring impact."
+description: "A systematic approach to finding and fixing performance bottlenecks in Android apps - from identifying symptoms to measuring impact."
 date: "2025-07-15"
 tags: ["android", "performance", "debugging", "kotlin"]
 ---
 
-Finding a performance bottleneck is harder than fixing one. The fix is usually straightforward once you know the cause — move work off the main thread, reduce allocations, cache a result. The real skill is in the investigation. Here's how I approach it.
+Finding a performance bottleneck is harder than fixing one. The fix is usually straightforward once you know the cause - move work off the main thread, reduce allocations, cache a result. The real skill is in the investigation. Here's how I approach it.
 
 ## Key Takeaways
 
-- Symptoms lie. A slow screen might not have a slow composable — it might have a slow API call or a blocked main thread.
+- Symptoms lie. A slow screen might not have a slow composable - it might have a slow API call or a blocked main thread.
 - Always reproduce with profiling enabled. Guessing at bottlenecks wastes time.
 - The bottleneck is usually in one of three places: main thread, memory, or I/O.
 - Fix one thing at a time and measure after each change.
@@ -173,11 +173,11 @@ A screen was dropping frames during scrolling. CPU profiler showed nothing unusu
 
 ### The Cursor That Wouldn't Close
 
-An app's memory usage grew slowly over hours of use. Heap analysis showed thousands of `CursorWindow` objects. A Room query was returning a `Cursor` that wasn't being closed in an error path. The fix was two lines — adding a `finally` block.
+An app's memory usage grew slowly over hours of use. Heap analysis showed thousands of `CursorWindow` objects. A Room query was returning a `Cursor` that wasn't being closed in an error path. The fix was two lines - adding a `finally` block.
 
 ### The Serialization Surprise
 
-An API response took 200ms to parse on mid-range devices. The JSON payload was 2MB because the backend was returning full article content for a list endpoint that only needed titles and thumbnails. The fix wasn't on the Android side at all — it was adding a `fields` parameter to the API.
+An API response took 200ms to parse on mid-range devices. The JSON payload was 2MB because the backend was returning full article content for a list endpoint that only needed titles and thumbnails. The fix wasn't on the Android side at all - it was adding a `fields` parameter to the API.
 
 ## Final Thought
 

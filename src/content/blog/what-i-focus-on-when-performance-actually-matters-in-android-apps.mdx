@@ -20,10 +20,10 @@ The first thing I do when tasked with "make it faster" is measure the current st
 
 Tools I use daily:
 
-- **Android Studio Profiler** — CPU, memory, and network profiling in one place.
-- **Perfetto** — For detailed system traces when I need to understand exactly what's happening frame by frame.
-- **Baseline Profiles** — Measurably improve startup time by pre-compiling hot paths.
-- **Macrobenchmark** — Automated benchmarks for startup, scrolling, and animations.
+- **Android Studio Profiler** - CPU, memory, and network profiling in one place.
+- **Perfetto** - For detailed system traces when I need to understand exactly what's happening frame by frame.
+- **Baseline Profiles** - Measurably improve startup time by pre-compiling hot paths.
+- **Macrobenchmark** - Automated benchmarks for startup, scrolling, and animations.
 
 ```kotlin
 // Macrobenchmark example for measuring startup
@@ -87,7 +87,7 @@ I've seen 15-30% improvement in startup time from Baseline Profiles alone on rea
 
 ## Rule 3: Jank Is the Enemy
 
-Users feel jank — dropped frames during scrolling or animations — more than they feel raw speed. A list that scrolls at a consistent 60fps feels faster than one that renders items in 5ms but drops frames every few seconds.
+Users feel jank - dropped frames during scrolling or animations - more than they feel raw speed. A list that scrolls at a consistent 60fps feels faster than one that renders items in 5ms but drops frames every few seconds.
 
 Common causes of jank I've fixed:
 
@@ -142,9 +142,9 @@ On devices with 2-3GB of RAM (still a huge portion of the global market), memory
 
 What I watch for:
 
-- **Bitmap allocations** — The biggest memory consumer in most apps. Use `Coil` or `Glide` with proper caching and downsampling.
-- **Leaked fragments/activities** — LeakCanary catches these in debug builds.
-- **Large data sets in memory** — Use Paging 3 instead of loading everything at once.
+- **Bitmap allocations** - The biggest memory consumer in most apps. Use `Coil` or `Glide` with proper caching and downsampling.
+- **Leaked fragments/activities** - LeakCanary catches these in debug builds.
+- **Large data sets in memory** - Use Paging 3 instead of loading everything at once.
 
 ```kotlin
 // Instead of loading everything
@@ -159,11 +159,11 @@ val pagedArticles: Flow<PagingData<Article>> = Pager(
 
 ## Rule 5: Network Calls Are Usually the Bottleneck
 
-Most "slow" screens aren't slow because of rendering — they're slow because of network calls. My approach:
+Most "slow" screens aren't slow because of rendering - they're slow because of network calls. My approach:
 
 1. **Show cached data immediately**, refresh in background.
 2. **Parallelize independent calls** using `async/await`.
-3. **Compress payloads** — enable gzip, use protobuf for large payloads.
+3. **Compress payloads** - enable gzip, use protobuf for large payloads.
 4. **Prefetch data** the user is likely to need next.
 
 ```kotlin

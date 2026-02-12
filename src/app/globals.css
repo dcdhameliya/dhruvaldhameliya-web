@@ -100,7 +100,7 @@ body {
   transition: background-color 0.5s ease, color 0.4s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
 }
 
-/* View Transitions API — circular reveal from toggle button */
+/* View Transitions API - circular reveal from toggle button */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

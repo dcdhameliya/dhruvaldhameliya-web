@@ -5,14 +5,14 @@ date: "2025-11-10"
 tags: ["android", "clean-code", "architecture", "kotlin"]
 ---
 
-I've worked on codebases that were a joy to modify and codebases that made me dread every pull request. The difference was never about the framework or language — it was about the principles the team followed.
+I've worked on codebases that were a joy to modify and codebases that made me dread every pull request. The difference was never about the framework or language - it was about the principles the team followed.
 
 ## Key Takeaways
 
 - Maintainable code is code that's easy to change, not code that's clever.
 - Naming is the most underrated tool for readability.
 - Small, focused classes beat large, "smart" ones every time.
-- Delete code aggressively — dead code is worse than no code.
+- Delete code aggressively - dead code is worse than no code.
 
 ## Principle 1: Optimize for Readability, Not Cleverness
 
@@ -92,7 +92,7 @@ With the sealed class approach, you can never accidentally access `data` while i
 
 ## Principle 5: Delete Ruthlessly
 
-Dead code, commented-out blocks, unused imports, deprecated methods that "might be needed later" — delete them all. Version control exists for a reason.
+Dead code, commented-out blocks, unused imports, deprecated methods that "might be needed later" - delete them all. Version control exists for a reason.
 
 Every line of dead code:
 - Adds cognitive load for readers
@@ -137,4 +137,4 @@ class ArticleViewModel @Inject constructor(
 
 ## Final Thought
 
-Maintainable code isn't about following rules blindly. It's about making life easier for the next person who touches your code — which is often future you. Every shortcut you take today becomes a tax you pay tomorrow.
+Maintainable code isn't about following rules blindly. It's about making life easier for the next person who touches your code - which is often future you. Every shortcut you take today becomes a tax you pay tomorrow.

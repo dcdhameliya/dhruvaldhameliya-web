@@ -13,7 +13,7 @@ export default function HowIWorkPage() {
     <Container>
       <h1 className="text-3xl font-bold tracking-tight">How I Work</h1>
       <p className="mt-4 text-foreground/90 leading-relaxed">
-        A look at how I think about building software — my principles,
+        A look at how I think about building software - my principles,
         workflow, and what I value in engineering.
       </p>
 
@@ -67,7 +67,7 @@ export default function HowIWorkPage() {
             <div>
               <h3 className="font-medium">1. Understand the problem</h3>
               <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
-                Before writing any code, I make sure I understand the why — the
+                Before writing any code, I make sure I understand the why - the
                 user need, the business context, and the constraints.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function HowIWorkPage() {
               <h3 className="font-medium">4. Review and refine</h3>
               <p className="mt-1 text-sm text-foreground/90 leading-relaxed">
                 I actively seek code review feedback and treat it as a learning
-                opportunity. Clean code matters — it&apos;s a team asset.
+                opportunity. Clean code matters - it&apos;s a team asset.
               </p>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function HowIWorkPage() {
             </li>
             <li className="flex gap-3">
               <span className="mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
-              A culture that ships — not one that debates endlessly
+              A culture that ships - not one that debates endlessly
             </li>
             <li className="flex gap-3">
               <span className="mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />

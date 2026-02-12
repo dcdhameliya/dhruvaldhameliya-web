@@ -5,7 +5,7 @@ import { TrackedLink } from "@/components/TrackedLink";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Dhruval Dhameliya's professional resume — Software Engineer, Android at Meta.",
+    "Dhruval Dhameliya's professional resume - Software Engineer, Android at Meta.",
   alternates: { canonical: "/resume" },
 };
 
@@ -72,7 +72,7 @@ export default function ResumePage() {
                   revenue, infrastructure, and reliability impact on Reels ads.
                 </li>
                 <li>
-                  Own experiment-driven rollout strategy — from employee
+                  Own experiment-driven rollout strategy - from employee
                   testing through staged audience validation to full launch
                   based on metric signals.
                 </li>
@@ -94,7 +94,7 @@ export default function ResumePage() {
             </div>
 
             <div>
-              <h3 className="font-medium">Teaching Assistant — CS 338 Android Development</h3>
+              <h3 className="font-medium">Teaching Assistant - CS 338 Android Development</h3>
               <p className="text-sm text-foreground/70">
                 New Jersey Institute of Technology (NJIT) &middot; Jan 2023 &ndash; May 2024
               </p>
@@ -116,7 +116,7 @@ export default function ResumePage() {
               <ul className="mt-2 space-y-1.5 text-sm text-foreground/90 leading-relaxed list-disc pl-5">
                 <li>
                   Led end-to-end development of iOS and Android apps using
-                  Kotlin, Swift, Java, and React Native — from architecture
+                  Kotlin, Swift, Java, and React Native - from architecture
                   through App Store / Play Store deployment.
                 </li>
                 <li>
@@ -140,7 +140,7 @@ export default function ResumePage() {
                   Functions, FCM/APNS push notifications).
                 </li>
                 <li>
-                  Contributed to embedded systems projects — firmware
+                  Contributed to embedded systems projects - firmware
                   development, RTOS integration, and hardware communication
                   via I2C, SPI, and UART protocols.
                 </li>

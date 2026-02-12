@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Dhruval Dhameliya — Software Engineer, Android at Meta. Background, skills, and focus areas.",
+    "Dhruval Dhameliya - Software Engineer, Android at Meta. Background, skills, and focus areas.",
   alternates: { canonical: "/about" },
 };
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold tracking-tight">About</h1>
       <div className="mt-8 space-y-6 text-foreground/90 leading-relaxed">
         <p>
-          Hi, I&apos;m Dhruval — a Software Engineer on Instagram&apos;s
+          Hi, I&apos;m Dhruval - a Software Engineer on Instagram&apos;s
           Monetization Client Platform at Meta, where I own experimentation
           logic for Reels. I&apos;m passionate about building reliable,
           high-impact systems at scale and shipping with data-driven

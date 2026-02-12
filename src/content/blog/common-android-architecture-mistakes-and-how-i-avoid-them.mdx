@@ -53,7 +53,7 @@ class LoadHomeDataUseCase @Inject constructor(
 
 ## Mistake 2: Ignoring Process Death
 
-Android can kill your process at any time when the app is in the background. When the user returns, the system recreates your Activity and ViewModel — but any in-memory state is gone.
+Android can kill your process at any time when the app is in the background. When the user returns, the system recreates your Activity and ViewModel - but any in-memory state is gone.
 
 I've seen this cause real production issues: users fill out a long form, switch to another app to copy a reference number, and come back to an empty form.
 

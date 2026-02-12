@@ -1,6 +1,6 @@
 ---
 title: "Jetpack Compose Architecture Patterns That Scale"
-description: "Practical architecture patterns for Jetpack Compose that work in real production apps — not just sample projects."
+description: "Practical architecture patterns for Jetpack Compose that work in real production apps - not just sample projects."
 date: "2025-10-22"
 tags: ["android", "jetpack-compose", "architecture", "kotlin"]
 ---
@@ -9,7 +9,7 @@ Jetpack Compose changed how we build Android UIs, but it didn't change the need 
 
 ## Key Takeaways
 
-- Composables should be dumb — they render state, they don't manage it.
+- Composables should be dumb - they render state, they don't manage it.
 - Unidirectional data flow prevents an entire category of bugs.
 - State hoisting is the most important pattern in Compose.
 - Screen-level composables and reusable components serve different roles.
@@ -45,7 +45,7 @@ fun ArticleScreen() {
 The foundation of every scalable Compose architecture. State flows down, events flow up:
 
 ```kotlin
-// UI State — single source of truth
+// UI State - single source of truth
 data class ArticleUiState(
     val articles: List<Article> = emptyList(),
     val isLoading: Boolean = true,
@@ -95,14 +95,14 @@ fun ArticleScreen(viewModel: ArticleViewModel = hiltViewModel()) {
 State hoisting means moving state up to the caller. This makes composables reusable and testable:
 
 ```kotlin
-// Stateful — owns its state (used at the screen level)
+// Stateful - owns its state (used at the screen level)
 @Composable
 fun SearchBar() {
     var query by remember { mutableStateOf("") }
     SearchBarContent(query = query, onQueryChange = { query = it })
 }
 
-// Stateless — receives state (reusable anywhere)
+// Stateless - receives state (reusable anywhere)
 @Composable
 fun SearchBarContent(
     query: String,
@@ -124,7 +124,7 @@ The stateless version can be used in previews, tests, and different screens with
 
 I split composables into two categories:
 
-**Screen composables** — connected to ViewModels, handle navigation, one per route:
+**Screen composables** - connected to ViewModels, handle navigation, one per route:
 ```kotlin
 @Composable
 fun ProfileScreen(
@@ -136,7 +136,7 @@ fun ProfileScreen(
 }
 ```
 
-**Component composables** — pure UI, no ViewModel dependency, reusable:
+**Component composables** - pure UI, no ViewModel dependency, reusable:
 ```kotlin
 @Composable
 fun UserCard(
@@ -152,19 +152,19 @@ fun UserCard(
 Compose has specific APIs for side effects. Using the wrong one causes subtle bugs:
 
 ```kotlin
-// LaunchedEffect — runs when keys change
+// LaunchedEffect - runs when keys change
 LaunchedEffect(userId) {
     viewModel.loadUser(userId)
 }
 
-// DisposableEffect — cleanup when leaving composition
+// DisposableEffect - cleanup when leaving composition
 DisposableEffect(lifecycleOwner) {
     val observer = LifecycleEventObserver { _, event -> /* ... */ }
     lifecycleOwner.lifecycle.addObserver(observer)
     onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
 }
 
-// rememberCoroutineScope — for event handlers (not composition)
+// rememberCoroutineScope - for event handlers (not composition)
 val scope = rememberCoroutineScope()
 Button(onClick = {
     scope.launch { viewModel.submitForm() }
