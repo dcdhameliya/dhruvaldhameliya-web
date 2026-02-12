@@ -17,13 +17,13 @@ State management in Compose is deceptively simple on the surface. `remember`, `m
 ## Where State Should Live
 
 I categorize state into three buckets:
-
-| State Type | Where It Lives | Example |
-|-----------|---------------|---------|
-| UI state | Composable (`remember`) | Scroll position, text field focus |
-| Screen state | ViewModel (`StateFlow`) | Loading, error, data |
-| App state | Singleton / DataStore | Auth token, theme preference |
-
+```
+| State Type   | Where It Lives          | Example                           |
+|--------------|-------------------------|-----------------------------------|
+| UI state     | Composable (`remember`) | Scroll position, text field focus |
+| Screen state | ViewModel (`StateFlow`) | Loading, error, data              |
+| App state    | Singleton / DataStore   | Auth token, theme preference      |
+```
 The mistake I see most often: putting everything in the ViewModel. A text field's focus state doesn't need to survive configuration changes. A scroll position doesn't need to be in a `StateFlow`. Keep UI-only state in the composable.
 
 ## The Pattern I Use for Every Screen

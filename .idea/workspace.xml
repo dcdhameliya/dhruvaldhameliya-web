@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d829ee7-2656-414c-a50a-30cbcc7b6b05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/how-i-approach-system-design-as-a-mobile-app-engineer.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/how-i-approach-system-design-as-a-mobile-app-engineer.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770542968869</updated>
       <workItem from="1770542970111" duration="18603000" />
-      <workItem from="1770760270865" duration="18400000" />
+      <workItem from="1770760270865" duration="18733000" />
     </task>
     <servers />
   </component>
