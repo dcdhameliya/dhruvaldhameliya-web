@@ -22,11 +22,15 @@ if git commit -m "$COMMIT_MSG"; then
         echo "Connecting to $REMOTE_USER@$REMOTE_HOST..."
         ssh -i "$SSH_KEY_PATH" "$REMOTE_USER@$REMOTE_HOST" << EOF
 cd $DEPLOY_PATH || { echo "Deployment directory not found!"; exit 1; }
-echo "Pulling latest changes..."
+echo "📥 Pulling latest code..."
 git pull origin main  # Change 'main' to your default branch if needed
-echo "Running deployment script..."
-chmod +x pull.sh
-./pull.sh
+echo "📦 Installing dependencies..."
+npm ci
+echo "🏗️ Building Next.js app..."
+npm run build
+echo "♻️ Restarting PM2 app..."
+pm2 restart dhruvaldhameliya-com --update-env
+echo "✅ Deployment completed successfully!"
 EOF
 
         if [ $? -eq 0 ]; then
