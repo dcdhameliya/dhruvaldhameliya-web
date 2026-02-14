@@ -2,7 +2,7 @@
 # Configuration
 REMOTE_HOST="167.88.39.54"        # Replace with your server address
 REMOTE_USER="dhruvaldhameliya"               # Replace with your username
-DEPLOY_PATH="/home/dhruvaldhameliya/htdocs/dhruvaldhameliya.com/htdocs/dhruvaldhameliya"      # Replace with your app directory on the server
+DEPLOY_PATH="/home/dhruvaldhameliya/htdocs/dhruvaldhameliya.com"      # Replace with your app directory on the server
 SSH_KEY_PATH=".ssh/id_rsa"     # Replace if using a different SSH key
 
 # Commit message (passed as argument or default)
