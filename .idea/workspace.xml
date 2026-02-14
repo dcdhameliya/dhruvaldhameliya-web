@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d829ee7-2656-414c-a50a-30cbcc7b6b05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.ssh/id_rsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/blog/state-management-in-jetpack-compose-what-works-in-practice.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,18 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dcdhameliya"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dcdhameliya&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dcdhameliya/dhruvaldhameliya-web.git",
-    "accountId": "abc7e39e-f73d-4708-899a-51f4f68b3e1b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dcdhameliya/dhruvaldhameliya-web.git&quot;,
+    &quot;accountId&quot;: &quot;abc7e39e-f73d-4708-899a-51f4f68b3e1b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -50,6 +52,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHELLCHECK.PATH": "/Users/dhruval/Library/Application Support/JetBrains/WebStorm2025.3/plugins/Shell Script/shellcheck",
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
@@ -102,7 +105,9 @@
       <option name="presentableId" value="Default" />
       <updated>1770542968869</updated>
       <workItem from="1770542970111" duration="18603000" />
-      <workItem from="1770760270865" duration="18733000" />
+      <workItem from="1770760270865" duration="22477000" />
+      <workItem from="1770941812207" duration="1613000" />
+      <workItem from="1771062111678" duration="2208000" />
     </task>
     <servers />
   </component>
