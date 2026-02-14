@@ -6,7 +6,7 @@ import { getAllPosts } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Thoughts on engineering, architecture, and lessons learned building software.",
+    "Articles on Android development, system design, Jetpack Compose, and mobile engineering by Dhruval Dhameliya.",
   alternates: { canonical: "/blog" },
 };
 

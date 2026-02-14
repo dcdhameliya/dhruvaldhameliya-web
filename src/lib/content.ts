@@ -149,6 +149,37 @@ export async function getBlogSlugs(): Promise<string[]> {
   return getSlugs(BLOG_DIR);
 }
 
+export async function getAllTags(): Promise<string[]> {
+  const posts = await getAllPosts();
+  const tagSet = new Set<string>();
+  posts.forEach((p) => p.frontmatter.tags.forEach((t) => tagSet.add(t)));
+  return Array.from(tagSet).sort();
+}
+
+export async function getPostsByTag(tag: string): Promise<BlogPost[]> {
+  const posts = await getAllPosts();
+  return posts.filter((p) => p.frontmatter.tags.includes(tag));
+}
+
+export async function getRelatedPosts(
+  currentSlug: string,
+  currentTags: string[],
+  limit = 3
+): Promise<BlogPost[]> {
+  const allPosts = await getAllPosts();
+  const others = allPosts.filter((p) => p.slug !== currentSlug);
+
+  const scored = others.map((post) => {
+    const shared = post.frontmatter.tags.filter((t) =>
+      currentTags.includes(t)
+    ).length;
+    return { post, score: shared };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map((s) => s.post);
+}
+
 // --- Projects ---
 
 export async function getAllProjects(): Promise<Project[]> {

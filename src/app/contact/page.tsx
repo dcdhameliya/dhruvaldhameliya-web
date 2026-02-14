@@ -4,7 +4,8 @@ import { TrackedLink } from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Dhruval Dhameliya.",
+  description:
+    "Reach out to Dhruval Dhameliya for roles, collaborations, or networking. Email, LinkedIn, and GitHub links available.",
   alternates: { canonical: "/contact" },
 };
 

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Prose } from "@/components/Prose";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/content";
-import { getCanonicalUrl } from "@/lib/seo";
+import {
+  getCanonicalUrl,
+  generateProjectJsonLd,
+  generateBreadcrumbJsonLd,
+} from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -48,6 +53,40 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   return (
     <Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateProjectJsonLd({ ...frontmatter, slug })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbJsonLd([
+              { name: "Home", url: "/" },
+              { name: "Projects", url: "/projects" },
+              { name: frontmatter.title, url: `/projects/${slug}` },
+            ])
+          ),
+        }}
+      />
+      <nav className="mb-4 text-sm text-foreground/60">
+        <Link href="/" className="hover:text-foreground transition-colors">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <Link
+          href="/projects"
+          className="hover:text-foreground transition-colors"
+        >
+          Projects
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-foreground/80">{frontmatter.title}</span>
+      </nav>
       <article>
         <header className="mb-10">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">

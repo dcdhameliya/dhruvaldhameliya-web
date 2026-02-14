@@ -17,19 +17,20 @@ export function PostCard({ post }: { post: BlogPost }) {
         <p className="mt-2 text-sm text-foreground/90 leading-relaxed">
           {post.frontmatter.description}
         </p>
-        {post.frontmatter.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {post.frontmatter.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-500/10 dark:text-blue-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </Link>
+      {post.frontmatter.tags.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {post.frontmatter.tags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/blog/tag/${tag}`}
+              className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 transition-colors hover:bg-blue-100 dark:bg-blue-500/10 dark:text-blue-300 dark:hover:bg-blue-500/20"
+            >
+              {tag}
+            </Link>
+          ))}
+        </div>
+      )}
     </article>
   );
 }

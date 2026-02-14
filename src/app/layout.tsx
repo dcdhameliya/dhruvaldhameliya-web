@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "Dhruval Dhameliya",
+    description:
+      "Software Engineer, Android at Meta. Building mobile experiences at scale.",
   },
   icons: {
     icon: "/images/favicon.webp",

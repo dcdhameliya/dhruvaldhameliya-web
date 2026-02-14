@@ -5,7 +5,8 @@ import { getAllProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "A curated collection of projects and case studies.",
+  description:
+    "Curated Android, iOS, and open-source projects by Dhruval Dhameliya, including libraries, apps, and case studies.",
   alternates: { canonical: "/projects" },
 };
 

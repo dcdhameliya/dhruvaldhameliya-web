@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts, getAllProjects } from "@/lib/content";
+import { getAllPosts, getAllProjects, getAllTags } from "@/lib/content";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, projects] = await Promise.all([
+  const [posts, projects, tags] = await Promise.all([
     getAllPosts(),
     getAllProjects(),
+    getAllTags(),
   ]);
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -36,5 +37,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...projectRoutes];
+  const tagRoutes: MetadataRoute.Sitemap = tags.map((tag) => ({
+    url: `https://dhruvaldhameliya.com/blog/tag/${tag}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...projectRoutes, ...tagRoutes];
 }
